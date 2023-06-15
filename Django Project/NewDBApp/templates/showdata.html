@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alldata</title>
+    <style>
+        /* Internal CSS */
+    </style>
+</head>
+<body style="background-color: rgb(35, 39, 39);">
+    <center><h1 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;color: chartreuse;">Showdata</h1></center>
+    <hr>
+    <!-- <h2 style="color: aliceblue;">{{data}}</h2> -->
+    <!-- {% for i in data %}
+    <h2 style="color: aliceblue;">{{i.name}}</h2>
+    <h2 style="color: aliceblue;">{{i.sub}}</h2>
+    <h2 style="color: aliceblue;">{{i.email}}</h2>
+    <h2 style="color: aliceblue;">{{i.dob}}</h2>
+    {% endfor %} -->
+
+    <table align="center" border="2">
+        <tr>
+            <th style="color: aliceblue;">ID</th>
+            <th style="color: aliceblue;">Name</th>
+            <th style="color: aliceblue;">Subject</th>
+            <th style="color: aliceblue;">Email</th>
+            <th style="color: aliceblue;">DOB</th>
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td style="color:brown">{{i.id}}</td>
+            <td style="color:brown">{{i.name}}</td>
+            <td style="color:brown">{{i.sub}}</td>
+            <td style="color:brown">{{i.email}}</td>
+            <td style="color:brown">{{i.dob}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+</body>
+</html>
