@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <style>
+        /* Internal CSS */
+    </style>
+</head>
+<body style="background-color: rgb(35, 39, 39);">
+    <center><h1 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;color: chartreuse;">Update Data</h1></center>
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        <input value="{{stid.name}}" style="border-radius: 15%;border-color: rgb(121, 18, 18);" type="text" placeholder="Name" name="name" required><br><br>
+        <input value="{{stid.sub}}"  style="border-radius: 15%;border-color: rgb(121, 18, 18);" type="text" placeholder="Subject" name="sub" required><br><br>
+        <input value="{{stid.email}}"  style="border-radius: 15%;border-color: rgb(121, 18, 18);" type="email" placeholder="Email" name="email" required><br><br>
+        <input value="{{stid.dob|date:'Y-m-d'}}"  style="border-radius: 15%;border-color: rgb(121, 18, 18);" type="date" name="dob" required><br><br>
+        <input type="submit" value="Update">
+        <input type="reset">
+    </form>
+    <hr>
+    <a href="/showdata" style="color: aqua;">Showdata</a>
+</body>
+</html>

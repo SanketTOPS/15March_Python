@@ -8,8 +8,8 @@
         /* Internal CSS */
     </style>
 </head>
-<body style="background-color: rgb(35, 39, 39);">
-    <center><h1 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;color: chartreuse;">Showdata</h1></center>
+<body style="background-color: rgb(185, 246, 246);">
+    <center><h1 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;color: rgb(13, 14, 13);">Showdata</h1></center>
     <hr>
     <!-- <h2 style="color: aliceblue;">{{data}}</h2> -->
     <!-- {% for i in data %}
@@ -21,11 +21,13 @@
 
     <table align="center" border="2">
         <tr>
-            <th style="color: aliceblue;">ID</th>
-            <th style="color: aliceblue;">Name</th>
-            <th style="color: aliceblue;">Subject</th>
-            <th style="color: aliceblue;">Email</th>
-            <th style="color: aliceblue;">DOB</th>
+            <th style="color: black;">ID</th>
+            <th style="color: black;">Name</th>
+            <th style="color: black;">Subject</th>
+            <th style="color: black;">Email</th>
+            <th style="color: black;">DOB</th>
+            <th style="color: black;">Update Data</th>
+            <th style="color: black;">Delete Data</th>
         </tr>
         {% for i in data %}
         <tr>
@@ -34,6 +36,8 @@
             <td style="color:brown">{{i.sub}}</td>
             <td style="color:brown">{{i.email}}</td>
             <td style="color:brown">{{i.dob}}</td>
+            <td><a style="color: black;" href="/updatedata/{{i.id}}">Update</a></td>
+            <td><a style="color: black;" href="/deletedata/{{i.id}}">Delete</a></td>
         </tr>
         {% endfor %}
     </table>
