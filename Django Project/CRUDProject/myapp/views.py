@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .forms import userForm
 from .models import userdata
 
@@ -18,5 +18,22 @@ def showdata(request):
     data=userdata.objects.all()
     return render(request,'showdata.html',{'data':data})
 
-def updatedata(request):
-    return render(request,'updatedata.html')
+def updatedata(request,id):
+    stid=userdata.objects.get(id=id)
+    if request.method=='POST':
+        updateuser=userForm(request.POST,instance=stid)
+        if updateuser.is_valid():
+            #updateuser=userForm(request.POST)
+            updateuser.save()
+            print("Update successfully!")
+            return redirect('showdata')
+        else:
+            print(updateuser.errors)
+    return render(request,'updatedata.html',{'stid':stid})
+
+def deletedata(request,id):
+    stid=userdata.objects.get(id=id)
+    userdata.delete(stid)
+    return redirect('showdata')
+
+    
