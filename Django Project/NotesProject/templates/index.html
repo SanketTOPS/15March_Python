@@ -58,6 +58,17 @@
     </nav>
     <!-- Navbar End -->
 
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Welcome! </strong>{{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
     <!-- Login Modal Start -->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -67,22 +78,23 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method="post">
+                        {% csrf_token %}
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Username/Email</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
+                            <input type="email" name="username" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1">Check me out</label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="submit" name="login" value="login" class="btn btn-primary">Login</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -132,7 +144,8 @@
                         </div>
                         <div class="col-md-6">
                             <label for="validationCustom01" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" id="validationCustom01" required>
+                            <input type="password" name="password" class="form-control" id="validationCustom01"
+                                required>
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -174,7 +187,7 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <button class="btn btn-primary" type="submit">Signup</button>
+                            <button class="btn btn-primary" name="signup" value="signup" type="submit">Signup</button>
                         </div>
                     </form>
                     <!-- Signup Form End -->
