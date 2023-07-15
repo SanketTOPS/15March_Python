@@ -86,6 +86,42 @@
     </ul>
     {% endif %}
 
+
+    <!-- Notes Form Start -->
+    <div class="container my-5">
+        <form id="myForm" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Query Title</label>
+                <input type="text" class="form-control" name="query" id="query" aria-describedby="emailHelp">
+            </div>
+
+            <select class="form-select" id="option" name="option" aria-label="Default select example">
+                <option selected>Select your option</option>
+                <option>Core Python</option>
+                <option>Python with Django</option>
+                <option>JAVA</option>
+                <option>Android</option>
+                <option>iOS</option>
+                <option>Other</option>
+            </select>
+
+            <div class="mb-3 my-2">
+                <label for="formFile" class="form-label">Upload your file's</label>
+                <input class="form-control" name="files" type="file" id="files">
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Comments</label>
+                <textarea class="form-control" name="comments" id="comments" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Notes</button>
+        </form>
+    </div>
+    <!-- Notes Form End -->
+
+
+
     <!-- Login Modal Start -->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -214,6 +250,7 @@
         </div>
     </div>
     <!-- Signup Modal End -->
+
 </body>
 
 </html>
