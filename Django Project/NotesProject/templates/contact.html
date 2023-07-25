@@ -91,21 +91,22 @@
       <div class="row">
         <div class="col-md-7">
           <div class="form_container">
-            <form action="">
+            <form method="post">
+              {% csrf_token %}
               <div>
-                <input type="text" placeholder="Full Name" />
+                <input type="text" name="name" placeholder="Full Name" />
               </div>
               <div>
-                <input type="email" placeholder="Email" />
+                <input type="email" name="email" placeholder="Email" />
               </div>
               <div>
-                <input type="text" placeholder="Phone Number" />
+                <input type="text" name="phone" placeholder="Phone Number" />
               </div>
               <div>
-                <input type="text" class="message-box" placeholder="Message" />
+                <input type="text" name="msg" class="message-box" placeholder="Message" />
               </div>
               <div class="btn_box">
-                <button>
+                <button type="submit">
                   SEND
                 </button>
               </div>
@@ -291,7 +292,44 @@
   <!-- custom js -->
   <script src="/static/js/custom.js"></script>
 
-
+   <!-- WhatsApp Chat Button Start -->
+   <script>
+    var url = 'https://dev2-wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?92905';
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = url;
+    var options = {
+        "enabled": true,
+        "chatButtonSetting": {
+            "backgroundColor": "#000000",
+            "ctaText": "",
+            "borderRadius": "25",
+            "marginLeft": "0",
+            "marginRight": "20",
+            "marginBottom": "20",
+            "ctaIconWATI": false,
+            "position": "right"
+        },
+        "brandSetting": {
+            "brandName": "NotesApp",
+            "brandSubTitle": "TOPS Technologies",
+            "brandImg": "/static/imgs/notes_favicon.png",
+            "welcomeText": "Hi there!\nHow can I help you?",
+            "messageText": "Hello, %0A I have a question about {{page_link}}",
+            "backgroundColor": "#000000",
+            "ctaText": "Chat with us",
+            "borderRadius": "25",
+            "autoShow": false,
+            "phoneNumber": "919724799469"
+        }
+    };
+    s.onload = function () {
+        CreateWhatsappChatWidget(options);
+    };
+    var x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+</script>
 </body>
 
 </html>
