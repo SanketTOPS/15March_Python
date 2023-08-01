@@ -65,7 +65,7 @@ def contact(request):
             send_mail(subject=sub,message=msg,from_email=from_ID,recipient_list=to_ID)
 
             #OTP Sending 
-            otp=random.randint(1111,9999)
+            '''otp=random.randint(1111,9999)
             url = "https://www.fast2sms.com/dev/bulkV2"
             querystring = {"authorization":"KEGZf5czOn3eCxJPkWAFHQUYtS86Rbmrv1MyuViag4hs7N2DujvzKSw5MN9mRryb3LC4DsIHiWph78","variables_values":f"{otp}","route":"otp","numbers":"9825815881,8955973401,7016891480,7016475702"}
             headers = {
@@ -73,7 +73,7 @@ def contact(request):
             }
             response = requests.request("GET", url, headers=headers, params=querystring)
 
-            print(response.text)
+            print(response.text)'''
         else:
             print(newfeedback.errors)
     return render(request,'contact.html')
